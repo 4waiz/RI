@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-base: #0B0F14;
+    --color-panel: #111821;
+    --color-steel: #1B2430;
+    --color-slate: #2A3646;
+    --color-accent: #3AA9FF;
+    --color-accent-glow: #6EC1FF;
+    --color-grid: #14202B;
+    --color-muted: #9AA4B2;
+    --color-foreground: #ffffff;
+    --color-foreground-muted: rgba(255, 255, 255, 0.7);
+    --color-border: rgba(255, 255, 255, 0.1);
+    color-scheme: dark;
+  }
+
+  .light {
+    --color-base: #F8FAFC;
+    --color-panel: #FFFFFF;
+    --color-steel: #E2E8F0;
+    --color-slate: #CBD5E1;
+    --color-accent: #0284C7;
+    --color-accent-glow: #0EA5E9;
+    --color-grid: #F1F5F9;
+    --color-muted: #64748B;
+    --color-foreground: #0F172A;
+    --color-foreground-muted: rgba(15, 23, 42, 0.7);
+    --color-border: rgba(15, 23, 42, 0.1);
+    color-scheme: light;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    @apply bg-base font-body antialiased;
+    color: var(--color-foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight;
+  }
+
+  ::selection {
+    background: rgba(58, 169, 255, 0.35);
+  }
+
+  .light ::selection {
+    background: rgba(2, 132, 199, 0.25);
+  }
+}
+
+@layer utilities {
+  .blueprint-grid {
+    background-image: linear-gradient(
+        to right,
+        rgba(58, 169, 255, 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(58, 169, 255, 0.08) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+
+  .light .blueprint-grid {
+    background-image: linear-gradient(
+        to right,
+        rgba(2, 132, 199, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(2, 132, 199, 0.1) 1px,
+        transparent 1px
+      );
+  }
+
+  .rivet-texture {
+    background-image: radial-gradient(
+      circle,
+      rgba(148, 163, 184, 0.28) 1px,
+      transparent 1px
+    );
+    background-size: 30px 30px;
+  }
+
+  .light .rivet-texture {
+    background-image: radial-gradient(
+      circle,
+      rgba(100, 116, 139, 0.15) 1px,
+      transparent 1px
+    );
+  }
+
+  .panel {
+    @apply border backdrop-blur;
+    background-color: color-mix(in srgb, var(--color-panel) 80%, transparent);
+  }
+
+  .section {
+    @apply py-12 md:py-16;
+  }
+
+  .section-tight {
+    @apply py-6 md:py-8;
+  }
+
+  .content-container {
+    @apply mx-auto w-full max-w-6xl px-6;
+  }
+
+  .glow-ring {
+    box-shadow: 0 0 0 1px rgba(58, 169, 255, 0.35),
+      0 0 32px rgba(58, 169, 255, 0.18);
+  }
+
+  .light .glow-ring {
+    box-shadow: 0 0 0 1px rgba(2, 132, 199, 0.35),
+      0 0 32px rgba(2, 132, 199, 0.12);
+  }
+
+  .text-white\/70 {
+    color: var(--color-foreground-muted);
+  }
+
+  .text-white\/60 {
+    color: var(--color-foreground-muted);
+    opacity: 0.85;
+  }
+
+  .text-white\/50 {
+    color: var(--color-foreground-muted);
+    opacity: 0.7;
+  }
+
+  .text-white\/90 {
+    color: var(--color-foreground);
+    opacity: 0.9;
+  }
+}
