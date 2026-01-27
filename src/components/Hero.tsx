@@ -184,9 +184,9 @@ export const Hero = () => {
               >
                 <defs>
                   <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(58,169,255,0)" />
-                    <stop offset="50%" stopColor="rgba(58,169,255,1)" />
-                    <stop offset="100%" stopColor="rgba(58,169,255,0)" />
+                    <stop offset="0%" stopColor="var(--color-accent)" stopOpacity="0" />
+                    <stop offset="50%" stopColor="var(--color-accent)" stopOpacity="1" />
+                    <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0" />
                   </linearGradient>
                 </defs>
 
@@ -197,7 +197,8 @@ export const Hero = () => {
                   width="380"
                   height="220"
                   rx="18"
-                  stroke="rgba(58,169,255,0.6)"
+                  stroke="var(--color-accent)"
+                  strokeOpacity={0.6}
                   strokeWidth="2"
                   strokeDasharray="8 4"
                   initial={{ strokeDashoffset: 0 }}
@@ -212,7 +213,8 @@ export const Hero = () => {
                   width="140"
                   height="140"
                   rx="14"
-                  stroke={activeModule === "cnc" ? "rgba(58,169,255,0.8)" : "rgba(255,255,255,0.3)"}
+                  stroke={activeModule === "cnc" ? "var(--color-accent)" : "var(--color-muted)"}
+                  strokeOpacity={activeModule === "cnc" ? 0.8 : 0.4}
                   strokeWidth={activeModule === "cnc" ? 3 : 2}
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -226,7 +228,8 @@ export const Hero = () => {
                   width="130"
                   height="60"
                   rx="12"
-                  stroke={activeModule === "qa" ? "rgba(58,169,255,0.8)" : "rgba(255,255,255,0.3)"}
+                  stroke={activeModule === "qa" ? "var(--color-accent)" : "var(--color-muted)"}
+                  strokeOpacity={activeModule === "qa" ? 0.8 : 0.4}
                   strokeWidth={activeModule === "qa" ? 3 : 2}
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -240,7 +243,8 @@ export const Hero = () => {
                   width="130"
                   height="60"
                   rx="12"
-                  stroke={activeModule === "assembly" || activeModule === "shipping" ? "rgba(58,169,255,0.8)" : "rgba(255,255,255,0.3)"}
+                  stroke={activeModule === "assembly" || activeModule === "shipping" ? "var(--color-accent)" : "var(--color-muted)"}
+                  strokeOpacity={activeModule === "assembly" || activeModule === "shipping" ? 0.8 : 0.4}
                   strokeWidth={activeModule === "assembly" || activeModule === "shipping" ? 3 : 2}
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -270,14 +274,16 @@ export const Hero = () => {
                   <>
                     <motion.circle
                       r="3"
-                      fill="rgba(58,169,255,0.9)"
+                      fill="var(--color-accent)"
+                      fillOpacity={0.9}
                       initial={{ cx: 200, cy: 90, opacity: 0 }}
                       animate={{ cx: 230, cy: 90, opacity: [0, 1, 1, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
                     />
                     <motion.circle
                       r="3"
-                      fill="rgba(58,169,255,0.9)"
+                      fill="var(--color-accent)"
+                      fillOpacity={0.9}
                       initial={{ cx: 200, cy: 170, opacity: 0 }}
                       animate={{ cx: 230, cy: 170, opacity: [0, 1, 1, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.75 }}
@@ -290,7 +296,8 @@ export const Hero = () => {
                   cx="130"
                   cy="130"
                   r="36"
-                  stroke="rgba(58,169,255,0.8)"
+                  stroke="var(--color-accent)"
+                  strokeOpacity={0.8}
                   strokeWidth="3"
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -301,7 +308,8 @@ export const Hero = () => {
                     cx="130"
                     cy="130"
                     r="36"
-                    stroke="rgba(58,169,255,0.4)"
+                    stroke="var(--color-accent)"
+                    strokeOpacity={0.4}
                     strokeWidth="2"
                     fill="none"
                     initial={{ scale: 1, opacity: 0.6 }}
@@ -318,12 +326,14 @@ export const Hero = () => {
                 >
                   <path
                     d="M130 94 L130 166"
-                    stroke="rgba(58,169,255,0.6)"
+                    stroke="var(--color-accent)"
+                    strokeOpacity={0.6}
                     strokeWidth="2"
                   />
                   <path
                     d="M94 130 L166 130"
-                    stroke="rgba(58,169,255,0.6)"
+                    stroke="var(--color-accent)"
+                    strokeOpacity={0.6}
                     strokeWidth="2"
                   />
                 </motion.g>
@@ -333,17 +343,17 @@ export const Hero = () => {
                   cx="130"
                   cy="130"
                   r="4"
-                  fill="rgba(58,169,255,1)"
+                  fill="var(--color-accent)"
                   initial={{ scale: 0 }}
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
 
                 {/* Status labels in SVG */}
-                <text x="295" y="95" fill="rgba(255,255,255,0.5)" fontSize="10" textAnchor="middle">
+                <text x="295" y="95" fill="var(--color-muted)" fontSize="10" textAnchor="middle">
                   QA
                 </text>
-                <text x="295" y="175" fill="rgba(255,255,255,0.5)" fontSize="10" textAnchor="middle">
+                <text x="295" y="175" fill="var(--color-muted)" fontSize="10" textAnchor="middle">
                   OUT
                 </text>
               </svg>
@@ -352,7 +362,7 @@ export const Hero = () => {
                 {systemModules.map((module, index) => (
                   <motion.div
                     key={module.id}
-                    className="group cursor-pointer rounded-lg p-2 transition-colors hover:bg-white/5"
+                    className="group cursor-pointer rounded-lg p-2 transition-colors hover:bg-foreground/5"
                     onMouseEnter={() => setActiveModule(module.id)}
                     onMouseLeave={() => setActiveModule(null)}
                     initial={{ opacity: 0, y: 10 }}
@@ -377,7 +387,7 @@ export const Hero = () => {
                       </motion.div>
                     </div>
                     <p className="mt-0.5">{module.description}</p>
-                    <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-white/10">
+                    <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-foreground/10">
                       <motion.div
                         className="h-full bg-accent/60"
                         initial={{ width: 0 }}
@@ -385,7 +395,7 @@ export const Hero = () => {
                         transition={{ duration: 0.5 }}
                       />
                     </div>
-                    <p className="mt-1 text-[9px] text-muted/60">{module.metricLabel}</p>
+                    <p className="mt-1 text-[9px] text-muted">{module.metricLabel}</p>
                   </motion.div>
                 ))}
               </div>
