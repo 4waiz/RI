@@ -72,7 +72,7 @@ export const Home = () => {
   };
 
   return (
-    <main className="text-white">
+    <main className="text-foreground">
       <Hero />
 
       <section className="section">

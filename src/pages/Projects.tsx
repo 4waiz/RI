@@ -34,8 +34,8 @@ export const Projects = () => {
                 onClick={() => setActive(filter.id)}
                 className={`relative rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-[0.25em] transition ${
                   active === filter.id
-                    ? "text-white"
-                    : "text-white/60 hover:text-white"
+                    ? "text-foreground"
+                    : "text-muted hover:text-foreground"
                 }`}
               >
                 {active === filter.id && (

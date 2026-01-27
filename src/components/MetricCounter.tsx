@@ -39,7 +39,7 @@ export const MetricCounter = ({ value, suffix = "", label }: MetricCounterProps)
 
   return (
     <div ref={ref} className="rounded-2xl border border-white/10 bg-panel/70 p-6">
-      <p className="text-3xl font-semibold text-white">
+      <p className="text-3xl font-semibold text-foreground">
         {displayValue}
         {suffix}
       </p>
